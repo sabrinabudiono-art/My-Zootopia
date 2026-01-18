@@ -10,13 +10,15 @@ def serialize_animal(animal_obj):
     """ Handle a single animal serialization """
     output = ''
     output += '<li class="cards__item">'
-    output += f'<div class="card__title">Name: {animal_obj["name"]}<br/></div>\n'
-    output += '<p class="card__text">'
-    output += f"<strong>Diet:</strong> {animal_obj["characteristics"]["diet"]}<br/>\n"
-    output += f"<strong>Location</strong>: {animal_obj["locations"][0]}<br/>\n"
+    output += f'<div class="card__title">Name: {animal_obj["name"]}</div>\n'
+    output += '<div class="card__text">'
+    output += '<ul>'
+    output += f"<li><strong>Diet:</strong> {animal_obj["characteristics"]["diet"]}</li>\n"
+    output += f"<li><strong>Location</strong>: {animal_obj["locations"][0]}</li>\n"
     if "type" in animal_obj.get("characteristics", {}):
-        output += f"<strong>Type</strong>: {animal_obj["characteristics"]["type"]}<br/>\n"
-    output += '</p>'
+        output += f"<li><strong>Type</strong>: {animal_obj["characteristics"]["type"]}</li>\n"
+    output += '</ul>'
+    output += '</div>'
     output += '</li>'
     return output
 
